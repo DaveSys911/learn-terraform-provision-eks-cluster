@@ -34,6 +34,20 @@ module "eks" {
   ]
 }
 
+  map_users = [
+
+    {
+      userarn  = "arn:aws:iam::704479110758:user/david"
+      username = "davidn"
+      groups   = ["system:masters"]
+    },
+    {
+      userarn  = "arn:aws:iam::704479110758:user/terraform-deployment"
+      username = "terraform-deployment"
+      groups   = ["system:masters"]
+    },
+  ]
+
 data "aws_eks_cluster" "cluster" {
   name = module.eks.cluster_id
 }
