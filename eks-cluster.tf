@@ -32,10 +32,8 @@ module "eks" {
       asg_desired_capacity          = 1
     },
   ]
-}
 
   map_users = [
-
     {
       userarn  = "arn:aws:iam::704479110758:user/david"
       username = "davidn"
@@ -47,6 +45,7 @@ module "eks" {
       groups   = ["system:masters"]
     },
   ]
+}
 
 data "aws_eks_cluster" "cluster" {
   name = module.eks.cluster_id
